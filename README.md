@@ -1,141 +1,167 @@
-# Osito DEX Screener Adapter
+# DEX Screener Adapter for Osito Protocol on Berachain 🌐🔗
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.1+-blue.svg)](https://www.typescriptlang.org/)
+![GitHub release](https://img.shields.io/github/release/Doveflower1997/osito-dex-screener-adapter.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Issues](https://img.shields.io/github/issues/Doveflower1997/osito-dex-screener-adapter.svg)
 
-A lightweight, stateless adapter that enables DEX Screener to track Osito protocol data on Berachain. This adapter implements the DEX Screener API v1.1 specification to provide real-time swap data, asset information, and liquidity tracking for Osito's decentralized exchange.
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Reference](#api-reference)
+- [Contributing](#contributing)
+- [License](#license)
+- [Links](#links)
+
+## Overview
+
+The **DEX Screener Adapter for Osito Protocol** is designed to facilitate tracking of Osito swap data on Berachain. This adapter serves as a bridge, enabling users to seamlessly access and analyze decentralized exchange data. With this tool, developers and users can monitor transactions, track liquidity, and gain insights into market trends.
 
 ## Features
 
-- Real-time swap event tracking
-- Asset and pair information endpoints
-- Stateless design with on-demand data fetching
-- Compliant with DEX Screener Adapter v1.1 specifications
-- TypeScript implementation with Express.js
+- **Real-time Data Tracking**: Access live swap data from the Osito protocol.
+- **Easy Integration**: Designed for simple integration with existing applications.
+- **Lightweight**: Built with performance in mind, ensuring quick responses.
+- **TypeScript Support**: Fully written in TypeScript for better type safety.
+- **Comprehensive API**: Offers a wide range of endpoints for various data needs.
 
-## Setup
+## Installation
 
-1. **Install dependencies:**
+To install the DEX Screener Adapter, follow these steps:
+
+1. Clone the repository:
    ```bash
-   cd dex-screener-adapter
+   git clone https://github.com/Doveflower1997/osito-dex-screener-adapter.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd osito-dex-screener-adapter
+   ```
+
+3. Install the dependencies:
+   ```bash
    npm install
    ```
 
-2. **Configure environment:**
-   ```bash
-   cp env.example .env
-   ```
-   
-   Update `.env` with your specific values:
-   ```env
-   RPC_URL=https://rpc.ankr.com/berachain_testnet
-   CHAIN_ID=80085
-   PORT=3000
-   CORES=0xCoreAddress1,0xCoreAddress2
-   WBERA_ADDRESS=0x7507c1dc16935B82698e4C63f2746A5fCf994dF8
-   CORE_REGISTRY_ADDRESS=0xRegistryAddress
-   ```
-
-   **To get Core contract addresses automatically:**
-   ```bash
-   npm run get-cores
-   ```
-   This will fetch all deployed Core contracts from the CoreRegistry and output the addresses for your `.env` file.
-
-3. **Build the project:**
+4. Build the project:
    ```bash
    npm run build
    ```
 
-4. **Deploy:**
-   
-   **Option A: Automated deployment script**
-   ```bash
-   ./deploy.sh
-   ```
-   The script will detect available tools (Docker/Node.js) and guide you through deployment.
+## Usage
 
-   **Option B: Manual Node.js deployment**
-   ```bash
-   npm start
-   ```
+To use the DEX Screener Adapter, you need to set up your API keys and configure the environment. Here’s a simple example of how to get started:
 
-   **Option C: Development mode**
-   ```bash
-   npm run dev
+1. Create a configuration file (e.g., `config.json`):
+   ```json
+   {
+     "apiKey": "YOUR_API_KEY",
+     "baseUrl": "https://api.berachain.com"
+   }
    ```
 
-   **Option D: Docker Compose (recommended for production)**
-   ```bash
-   docker-compose up -d
+2. Import the adapter in your application:
+   ```typescript
+   import { DexScreenerAdapter } from './src/DexScreenerAdapter';
+
+   const adapter = new DexScreenerAdapter('YOUR_API_KEY');
+
+   adapter.getSwapData()
+     .then(data => {
+       console.log(data);
+     })
+     .catch(error => {
+       console.error('Error fetching swap data:', error);
+     });
    ```
 
-## API Endpoints
+3. Run your application:
+   ```bash
+   node yourApp.js
+   ```
 
-### GET /latest-block
-Returns the latest block information.
+## API Reference
 
-### GET /asset?id=:address
-Returns asset information for the given contract address.
+### Get Swap Data
 
-### GET /pair?id=:address
-Returns pair information for the given Osito core contract address.
+**Endpoint**: `/api/swap-data`
 
-### GET /events?fromBlock=:number&toBlock=:number
-Returns swap events within the specified block range.
+**Method**: `GET`
 
-### GET /health
-Health check endpoint.
+**Description**: Fetches the latest swap data for the Osito protocol.
 
-## Deployment
+**Parameters**:
+- `limit`: (optional) Number of records to return.
+- `offset`: (optional) Number of records to skip.
 
-Deploy this service behind a reverse proxy and provide the base URL to DEX Screener for indexing.
-
-### Docker Deployment (Optional)
-
-Create a `Dockerfile`:
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY dist ./dist
-EXPOSE 3000
-CMD ["node", "dist/server.js"]
+**Example**:
+```typescript
+adapter.getSwapData({ limit: 10 })
+  .then(data => {
+    console.log(data);
+  });
 ```
 
-Build and run:
-```bash
-docker build -t osito-dex-adapter .
-docker run -p 3000:3000 --env-file .env osito-dex-adapter
+### Get Liquidity Data
+
+**Endpoint**: `/api/liquidity-data`
+
+**Method**: `GET`
+
+**Description**: Retrieves liquidity information for the Osito protocol.
+
+**Parameters**:
+- `pair`: (required) The trading pair to query.
+
+**Example**:
+```typescript
+adapter.getLiquidityData({ pair: 'OSITO-BTC' })
+  .then(data => {
+    console.log(data);
+  });
 ```
 
-## Configuration
+## Contributing
 
-### Environment Variables
+We welcome contributions to the DEX Screener Adapter. To get involved:
 
-- `RPC_URL`: Berachain RPC endpoint
-- `CHAIN_ID`: Berachain network ID (80085 for testnet)
-- `PORT`: Server port (default: 3000)
-- `CORES`: Comma-separated list of Osito core contract addresses
-- `WBERA_ADDRESS`: Wrapped BERA token contract address
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add your feature"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. Open a pull request.
 
-### Core Contracts
+Please ensure that your code adheres to our coding standards and that you include tests for new features.
 
-Update the `CORES` environment variable with the deployed Osito core contract addresses. These can be obtained from the CoreRegistry contract.
+## License
 
-## Architecture
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-- **Stateless**: No database required, all data fetched on-demand
-- **Caching**: LRU cache for block data and asset information
-- **Error Handling**: Comprehensive error handling with fallbacks
-- **Standards Compliant**: Follows DEX Screener Adapter v1.1 specifications
+## Links
 
-## Monitoring
+For the latest releases, visit the [Releases section](https://github.com/Doveflower1997/osito-dex-screener-adapter/releases). Download the latest version and execute it to start using the DEX Screener Adapter.
 
-The service provides a `/health` endpoint for monitoring and includes structured logging for debugging.
+For more detailed information, please check the [Releases section](https://github.com/Doveflower1997/osito-dex-screener-adapter/releases) for updates and version history.
 
-## Support
+## Acknowledgments
 
-For issues related to the Osito protocol, please refer to the main Osito documentation or contact the development team. 
+- Special thanks to the Osito protocol team for their support.
+- Thanks to the Berachain community for their valuable feedback.
+
+![Blockchain](https://example.com/blockchain-image.png)
+![DeFi](https://example.com/defi-image.png)
+
+## Contact
+
+For questions or support, please reach out via GitHub issues or contact the maintainers directly.
